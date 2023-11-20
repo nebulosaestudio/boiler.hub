@@ -1,0 +1,177 @@
+@import url(fontawesome-all.min.css);
+
+/* reset */
+
+ul , ul li, li {
+   margin:0; padding:0;
+}
+ul.inline li{
+   display: inline-block;
+}
+
+#enlaces{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   padding:1em;
+}
+
+html {
+    margin:0;
+    padding:0;
+    height:100%;
+}
+
+body{
+    background-image: url("images/overlay.png"), linear-gradient(60deg, rgba(51, 24, 19, 0.95) 5%, rgba(36, 54, 56, 0.85)), url("../../images/bg.jpg");
+    background-repeat: repeat, no-repeat, no-repeat;
+    background-size: 100px 100px, cover, cover;
+    background-position: top left, center center, bottom center;
+    background-attachment: fixed, fixed, fixed;
+    height:100%;
+    color:#dadada;
+   font-family:'Segoe UI',Roboto,'Helvetica Neue',sans-serif;
+}
+
+#wrap{
+   height:100%;
+}
+
+#container{
+   height:100%;
+   display:flex;
+   /* centra horizontalmente */
+   justify-content: center;
+   /* centra vertical: */
+   align-items:center;
+}
+
+#card{
+   background: rgba(20,20,25,1);
+   padding: 2.3em;
+   border-radius: 12px;
+   width:72vw;
+}
+
+#card img{
+    border-radius: 100%;
+    margin:0 auto;
+    width: 20vw;
+   
+
+}
+
+#info{
+   padding-top:1.2em;
+}
+
+#footer{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+
+#footer a{
+   display:block;
+   border:2px solid #fafa;
+}
+
+h1{  font-family:Georgia, 'Times New Roman', Times, serif ;padding:0; margin:0;  font-size:1.6em   }
+h2{  font-family:Georgia, 'Times New Roman', Times, serif ; font-size:1em;}
+
+
+.centered{
+   text-align: center;
+}
+
+.fcenter{
+   display:flex;
+   justify-content: center;
+   align-items:center;
+}
+#enlaces a.brands{
+   border-radius: 100%;
+   border: solid 1px #c4d7e6;
+   width: 3.75em;
+   height: 3.75em;
+   line-height: 3.75em;
+   text-indent: 1em;
+   overflow: hidden;
+   text-align: center;
+   white-space: nowrap;
+}
+
+#enlaces .brands::before {
+  font-family: 'Font Awesome 5 Brands';
+
+width: inherit;
+height: inherit;
+font-size: 1.85rem;
+line-height: inherit;
+text-align: center;
+text-indent: 0;
+color: #c8cccf;
+
+text-shadow: 1.25px 0px 0px #c8cccf, -1.25px 0px 0px #c8cccf, 0px 1.25px 0px #c8cccf, 0px -1.25px 0px #c8cccf;
+}
+
+.fa-twitter::before {
+   content: "\f099";
+}
+.fa-facebook::before {
+   content: "\f16d";
+}
+.fa-instagram::before {
+   content: "\f39e";
+}
+
+
+/*
+https://fontawesome.com/v4.7.0/cheatsheet/
+ fa-github [&#xf09b;]
+  fa-github-alt [&#xf113;]
+
+    fa-flickr [&#xf16e;] 
+
+    fa-jsfiddle [&#xf1cc;]
+
+    fa-behance [&#xf1b4;]
+
+     fa-codepen [&#xf1cb;]
+
+      fa-code [&#xf121;]
+
+       fa-creative-commons [&#xf25e;]
+
+        fa-file-pdf-o [&#xf1c1;]+
+
+        fa-free-code-camp [&#xf2c5;]
+
+
+         fa-linkedin [&#xf0e1;]
+
+          fa-mixcloud [&#xf289;]
+
+           fa-pinterest [&#xf0d2;]
+
+            fa-reddit-alien [&#xf281;]
+
+             fa-skype [&#xf17e;]
+
+              fa-soundcloud [&#xf1be;]
+
+               fa-snapchat-ghost [&#xf2ac;]
+
+                fa-telegram [&#xf2c6;]
+                  fa-stack-overflow [&#xf16c;] 
+
+                  fa-twitch [&#xf1e8;]
+
+                   fa-vimeo [&#xf27d;]
+
+                     fa-youtube [&#xf167;] 
+
+
+ fa-youtube-play [&#xf16a;] 
+
+*/

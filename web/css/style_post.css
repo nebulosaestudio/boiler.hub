@@ -1,0 +1,127 @@
+@import url(font-awesome.min.css);
+
+/* reset */
+html,body,h1,h2{	margin:0; padding:0;}
+
+body,h1,h2{
+	color: #faf0fa;
+		font-family: "Source Sans Pro", sans-serif;
+		margin:0;
+		padding:0;
+		background:#3f1a2a;
+	}
+/*!
+ *  @david.dabada
+ *  License - MIT License)
+ */
+
+/* ty¡po */
+
+/* RESET */
+
+/* MEDIA R@ */
+
+/* PROPORCIONES Y TAMAÑOS */
+body{padding:10% 12% 0;margin: 0 auto;}
+/* especifico */
+
+ @font-face{
+ 	font-family:'futura';
+ 		src:url('fonts/CaviarDreams.ttf') format('truetype');
+ 			font-weight:normal;
+ 			font-style:normal;}
+
+ @font-face{
+ 	font-family:'pro';
+ 		src:url('fonts/Prociono.ttf') format('truetype');
+ 		}
+
+
+
+/* offset-x | offset-y | blur-radius | color */
+.txt_sha{
+	text-shadow: 1px 1px 2px black; 
+
+}
+	
+
+
+.serif{font-family:serif;}
+.sans{font-family:sans-serif;}
+.mono{font-family:Courier;}
+
+
+.fa{color:#faf;}
+.fo{color:#f0f;}
+
+h1{
+	font-size:1.2rem;
+	color:rgba(240,252,242,0.9);
+	letter-spacing:0.8rem;
+ 	font-weight: 10;
+  	font-family:"Source Sans Pro", sans-serif;
+
+}
+
+h2{
+	color:rgba(240,252,242,0.98);
+	
+	font-size:4vw;
+	letter-spacing:0.44rem;
+	font-weight: 20;
+	font-family: "Source Sans Pro", sans-serif;
+}
+/*
+			div#main{
+				 padding-top: calc(40% - 100px);
+				 text-align: center;
+			}
+			*/
+p{font-family:'pro';font-size:1.6rem;line-height:1.6rem;}
+.intro{letter-spacing: 0.4rem;}
+
+#back{
+	position:absolute;
+	top:0;left:0;
+	width:100%;height:100%; 
+	background-image: url("../img/bg.jpg");
+	background-size: cover;
+	z-index: 99;
+	opacity:0;
+	/* animation */
+	-webkit-transition: opacity 1s linear 1s;
+    -moz-transition: opacity 1s linear 1s;
+    -o-transition: opacity 1s linear 1s;
+	transition: opacity 1s linear 1s;
+	
+}
+
+.back{
+	background:rgba(23,42,19,0.8);
+}
+#back2{
+	position:absolute;
+	top:0;left:0;
+	width:100%;height:100%; 
+	background-size: cover;
+	background-image: url("../img/backh.jpg");
+	z-index: 98;
+	opacity:0;
+	/* animation */
+	-webkit-transition: opacity 2s ease-out;
+	-moz-transition: opacity 2s ease-out;
+	-o-transition: opacity 2s ease-out;
+	transition: opacity 2s ease-in-out;
+
+}
+
+.fade-in{
+opacity:0.8 !important;	
+}
+
+.fade-out{
+opacity:0 !important;	
+}
+/* BG */
+
+	

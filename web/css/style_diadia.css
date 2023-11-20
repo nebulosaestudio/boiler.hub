@@ -1,0 +1,97 @@
+/* 
+
+	@cha-desig 
+
+ 	Copyright (CC BY-NC 4.0) 
+ 
+ */
+	
+/* ty¡po */
+@import url(font-awesome.min.css);
+@font-face{
+	font-family:'anaktoria';
+		src:url('fonts/Anaktoria_hint.ttf') format('truetype');
+			font-weight:normal;
+			font-style:normal;}
+
+body,h1,h2{
+		background: rgba(220,203,240,0.9);
+		font-family: anaktoria, sans-serif;
+		margin:0;
+		padding:0;
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+		text-rendering: auto;
+	}
+
+
+
+
+/* offset-x | offset-y | blur-radius | color */
+.txt_sha{
+	text-shadow: 1px 1px 2px black; 
+
+}
+	
+
+
+.serif{font-family:serif;}
+.sans{font-family:sans-serif;}
+.mono{font-family:Courier;}
+/* reset */
+html,body,h1,h2{	margin:0; padding:0;}
+
+body{
+	font-size:1.2rem;
+}
+.fa{color:#faf;}
+.fo{color:#f0f;}
+
+
+
+
+#wrapper{   
+	display: flex;
+	justify-content: space-between;
+	flex-direction:column;
+	align-items: center;
+	height:100%;
+	width:100%;
+	position:absolute;
+	z-index:101;
+}
+
+#main{
+	display: flex;
+	justify-content: flex-start;
+	flex-direction:row;
+	align-items: center;	
+}
+#main_warp{}
+#col_wrap{
+
+	padding: 12em 2em 1em 4.2em;
+}
+
+.flex{
+	display: flex;
+}
+
+.flex-center{
+	justify-content: center;
+	align-items: center;
+}
+
+h1,h2{
+	display:block;
+	width:100%;
+
+
+}
+h1,h2,h3,h4,h5,span,p{
+	font-family:anaktoria; 
+	color:#32A3;
+
+}
+
+

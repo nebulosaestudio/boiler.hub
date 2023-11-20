@@ -1,0 +1,235 @@
+/*!
+ *  @david.dabada
+ *  License - MIT License)
+ */
+
+ @import url('font-awesome.min.css');
+
+  /* reset */
+  html,body,h1,h2,a,ul,li{	margin:0; padding:0;}
+  a{text-decoration:none}
+
+  body{
+	  font-size:1.2rem;
+  }
+
+  a{text-decoration:none;}
+ ul,li{list-style:none;}
+ li{display:inline-block;padding:1em}
+  
+ body,h1,h2{
+		 color: rgba(20,20,20,0.9);
+		 font-family: "Source Sans Pro", serif;
+		 margin:0;
+		 padding:0;
+		 -moz-osx-font-smoothing: grayscale;
+		 -webkit-font-smoothing: antialiased;
+		 text-rendering: auto;
+	 }
+
+
+ /* ty¡po */
+ 
+	 html{    
+		 font-size: calc(16px + 4 * ((100vw - 480px)/ 800));
+		 line-height:1.5;
+	}
+  @font-face{
+	  font-family:'futura';
+		  src:url('fonts/CaviarDreams.ttf') format('truetype');
+			  font-weight:normal;
+			  font-style:normal;}
+ 
+  @font-face{
+	  font-family:'futuraB';
+		  src:url('fonts/Available.ttf') format('truetype');
+		  }
+ 
+
+	h1{
+		font-size:2.2rem;
+		color:rgba(240,252,242,0.9);
+		letter-spacing:0.8rem;
+		line-height:2rem;
+		font-weight: 100;
+		font-family:"Source Sans Pro", sans-serif;
+		font-family:futuraB;
+		padding-top:2rem;
+	}
+
+	h2{
+		color:rgba(240,252,242,0.98);
+		font-size:1.3rem;
+		letter-spacing:0.34rem;
+		line-height:3rem;
+		font-weight: 200;
+		font-family: "Helvetica",Helvetica,"Lucida Sans Console",Lucida,serif;
+	}
+ 
+ul{ display:flex;flex-direction:row;}
+		ul li a{display:flex;flex-direction:column;align-items: center;justify-content: center;}
+
+		ul li a img{width:3rem;height:3rem}
+
+		img{background:gray;}
+	ul li a{
+
+		color:rgba(240,222,212,0.8);
+		text-shadow: 1px 1px 1px black; 
+		font-size:0.9rem;
+	}
+ /* offset-x | offset-y | blur-radius | color */
+ .txt_sha{
+	 text-shadow: 1px 1px 2px black; 
+ 
+ }
+	 
+ 
+ 
+ .serif{font-family:serif;}
+ .sans{font-family:sans-serif;}
+ .mono{font-family:Courier;}
+
+  /* BG */
+ 
+  body#mobile-first ,.dark {
+	background:url("img/back.jpg");
+	background-color: rgba(24,24,25,0.8);
+	 
+
+}
+
+ #back{
+	 position:absolute;
+	 top:0;left:0;
+	 width:100%;height:100%; 
+	 background-image: url("../img/bg.jpg");
+	 background-size: cover;
+	 z-index: 99;
+	 opacity:0;
+	 /* animation */
+	 -webkit-transition: opacity 1s linear 1s;
+	 -moz-transition: opacity 1s linear 1s;
+	 -o-transition: opacity 1s linear 1s;
+	 transition: opacity 1s linear 1s;
+	 
+ }
+ 
+ .back{
+	 background:rgba(23,42,19,0.8);
+ }
+ #back2{
+	 position:absolute;
+	 top:0;left:0;
+	 width:100%;height:100%; 
+	 background-size: cover;
+	 background-image: url("../img/backh.jpg");
+	 z-index: 98;
+	 opacity:0;
+	 /* animation */
+	 -webkit-transition: opacity 2s ease-out;
+	 -moz-transition: opacity 2s ease-out;
+	 -o-transition: opacity 2s ease-out;
+	 transition: opacity 2s ease-in-out;
+ 
+ }
+ 
+ .fade-in{
+ opacity:0.8 !important;	
+ }
+ 
+ .fade-out{
+ opacity:0 !important;	
+ }
+
+
+
+ 
+ footer{
+	 width:100%;
+	 height:10%;
+	 position:absolute;
+	 bottom:0;
+	 text-align:center;
+	 font-size:0.6rem;
+	}
+			 /* add when H & w is defined */
+ 
+
+/* color */ 
+footer p{color:#faf}
+.fa{color:#faf;}
+.fo{color:#f0f;}
+
+
+/*prop layout */
+
+div#main{
+	width:68%;
+	height:42%;
+	text-align:center;
+	display: flex;
+ 	justify-content: center;
+    align-items: center;
+		
+}
+div#main_warp{
+	width:80%;
+	height:44%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+#wrapper{   
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height:100%;
+	width:100%;
+	position:absolute;
+	z-index:101;
+}
+#enlaces a.icono{
+
+	width: 3.75em;
+	height: 3.75em;
+
+	/*
+		line-height: 1.75em;
+	text-indent: 1em;
+	border-radius: 100%;
+	border: solid 1px #c8cccf;
+	overflow: hidden;
+	text-align: center;
+	white-space: nowrap;
+	*/
+ }
+
+ #enlaces span{
+	 color:rgba(200,200,200,0.8);
+	 width:100%;
+	 display:block;
+ }
+ 
+ #enlaces .icono::before {
+   font-family: 'Font Awesome 5 Brands';
+ 
+ width: inherit;
+ height: inherit;
+ font-size: 1.85rem;
+ line-height: inherit;
+ text-align: center;
+ text-indent: 0;
+ color: #ffffff;
+ 
+ /*text-shadow: 1.25px 0px 0px #c8cccf, -1.25px 0px 0px #c8cccf, 0px 1.25px 0px #c8cccf, 0px -1.25px 0px #c8cccf;*/
+ }
+
+#enlaces{
+ display: flex;
+ align-items: normal;
+ width: 100%;
+ justify-content: space-between;
+}
