@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<!--
+	
+	@cha-desig | Copyright (CC BY-NC 4.0) 
+	
+-->
+<html>
+	<head>
+		<title>: cha.design : soluciones creativas .</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="./css/style" />
+	</head>
+	<body>
+		<div id="warp">
+
+		</div>
+	</body>
+	<script type="text/javascript" src="Asprite.js" > </script>
+	<script>
+
+		var src = "./images/";
+		var urls = ['e01.jpeg','e02.jpeg','e03.jpeg','e04.jpeg','e05.jpeg','e06.jpeg','e07.jpeg','e08.jpeg'];
+		var anim = new Asprite(src,urls);
+
+		//anim.
+		// 24 fps = 1000 / 24
+		var ms = 40;
+		var int = setInterval(play,ms);
+
+		function play()
+		{	
+			anim.update();
+		}
+
+	</script>
+</html>
