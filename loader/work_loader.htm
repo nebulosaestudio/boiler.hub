@@ -1,0 +1,187 @@
+
+<!DOCTYPE HTML>
+<!--
+	
+	@cha-desig | Copyright (CC BY-NC 4.0) 
+	
+-->
+<html>
+	<head>
+		<title>: da-da : soluciones creativas .</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="./assets/css/stl.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<noscript><style type="text/css">div#main{padding-top: calc(40% - 100px);}</style></noscript>
+
+		<style>
+			body{background:#345;}
+		</style>
+	</head>
+	<body id="mobile-first" >
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<div id="main" >
+					
+					<div id="main_warp"> 
+						<h1>cha · design </h1> 
+						<h2>Works</h2> 
+						<div id="content" >
+
+						</div>
+
+							<h2> design & developing creative solutions </h2>
+							
+							<ul>
+									<li> clients <div id="icon"> works</div> </li>
+									<li> works <div id="icon"> howto</div> </li>
+									<li> Methodology <div id="icon"> contact</div> </li>
+							</ul>
+							
+							<div id="info">
+
+							</div>
+					</div>
+
+
+				</div>
+				
+<footer>
+<p> pretty weaving since 99 .<span>
+		design by da-da. ©
+</span> </p>
+
+
+
+</footer>
+			</div>
+
+		
+
+		<script type="text/javascript" src="./js/auxfun.js" > </script>
+		<script type="module" src="./js/chasys.js" > </script>
+		
+	<script>
+		var f = 300;
+		var stp = 0;
+		var url = './js/works.json';
+		init();
+		/* body . on load */
+
+		//on resize on change orientatión
+		function init(){
+		customAjax(url, 'GET').then(function(result) {
+		
+			
+			
+			//reiterate(result.works);
+			mostrarFromTemplate("tpl",result.works);
+			var str = iterate(result.works);
+		
+			console.log("RES:",str);
+			
+			document.getElementById('info').innerHTML = str;
+
+			});
+			
+		}
+
+		// recorrer objeto json de manera iterativa
+		function reiterate(obj)
+		{
+			for (var [key, value] of Object.entries(obj)) {
+				if ( typeof(value) === 'object')
+				{
+					reiterate(value);
+				}else{
+					console.log("key=>",key,"value=>",value);
+				}
+			}
+		}
+		function iterateObjasMap(obj)
+		{
+			//iterate as map
+			var map = new Map(Object.entries(obj));
+			map.forEach((value, key) => console.log(`key: ${key}, value: ${value}`));
+			
+		}
+		function iterateAsArray(obj)
+		{
+			//iterate as array 
+			var array_from_object = Object.values(result.works).map((work) => {
+				console.log("map work:",work);
+				document.getElementById('info').innerHTML += 'Title: ' + work.name + '</br>';
+
+				return work;   
+				//do something     
+				})
+	
+		}
+		// recorrer obj de obj, as fp
+		function iterate(obj)
+		{
+			var output_str = "<div>";
+			for (var [key, value] of Object.entries(obj)) {
+				var card = "";
+				for (var [k,v] of Object.entries(value)) {
+					console.log(k,v);
+					card += v;
+				}
+				output_str += card
+			}
+			output_str += "</div>";
+			return output_str;
+		}
+
+		function mostrar(obj)
+		{
+			
+			for (var [key, value] of Object.entries(obj)) {
+				console.log(key + ' ' + value); 
+				console.log( value.title , value.info)
+				document.getElementById('content').innerHTML += '<h3>' + value.title + '</h3>';
+				document.getElementById('content').innerHTML += '<h4>' + value.info + '</h4>';
+
+				// recorrer imagenes y mostrar
+
+			}
+		}
+		//tpl = title date info
+		var string  = "<h2> ötitle </h2> ";
+		string += "<h3> ödate </h3>";
+		string += "<h4> öinfo </h4>";
+		//
+		function mostrarFromTemplate(tpl,obj)
+		{
+			for (var [key, value] of Object.entries(obj)) {
+				//console.log(key,value);
+				var str = string;
+				for (var [k,v] of Object.entries(value)) {
+					var clave = 'ö'+k;
+					var regex = RegExp(clave);
+					if ( regex.test(string) )
+					{
+						str = str.replace(clave,v);	
+					}
+				}
+				document.getElementById('content').innerHTML += str;
+				//str = string;
+			}
+		}
+
+		function crearTplFromObj(obj,tpl)
+		{
+
+		}
+
+		//!CREAR PLANTILLA PORTFOLIO / WORKS
+
+		//PARA MAXIMA OPTIMIZACION - crear en servidor node / php / django ( python ) - >> HTML
+		//RENDERIZAR EN NAVEGADOR SI SOLO SI , se producen cambios livedsaffasdf
+		</script>
+	
+
+	</body>
+</html>

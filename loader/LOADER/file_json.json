@@ -1,0 +1,33 @@
+{ "elements" : 
+	{"back" :
+		{  
+		  "tag" 	: "div" , 
+		  "id" 		: "id" , 
+		  "class" 	: "class" , 
+		  "style" 	: "style" , 
+		  "width" 	: "w" , 
+		  "height" 	: "h" 
+		} 
+	,
+	 "logo" : 
+		{ "tag" : "img" ,
+		  "id" : "logo" , 
+		  "class" : "class" , 
+		  "style" : "style" , 
+		  "width" : 200 ,
+		  "height" : 100 ,
+		  "url" : "logo.png" 
+		}
+	 ,
+	 "button" :
+		 { "tag" : "txt" ,
+		   "id" : "but" , 
+		   "class" : "class" , 
+		   "style" : "style" , 
+		   "width" : 200 , 
+		   "height" : 100 , 
+		   "txt" : "start" , 
+		   "event" : "onpress(next)" 
+		}
+    }  
+}

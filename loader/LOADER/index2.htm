@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<!--
+    basic game template
+-->
+<html>
+    <head>
+        <title>. LOADER .</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+       <!-- crossorigin="anonymous" //inside <script> -->
+        <script src="./Element.js" ></script>
+
+
+        
+        <style>
+            html {
+                /*background-color: #faf;*/
+                margin:0;
+                padding:0;
+                height:100%;
+            }
+
+            body{
+                margin:0;
+                padding:0;
+                background:rgba(14,12,18,1);
+            }
+
+            #canvas{
+                margin:0;
+                padding:0;
+                width:100%;
+                height:100%;
+            }
+        </style>
+    </head>
+
+    <body >
+
+        <!--
+         <canvas id="canvas" width="1500" height="1500"></canvas>
+         <canvas id="canvasb"> </canvas>
+        -->
+
+    </body>
+
+        <script>
+/*
+          var imagenes = [];
+          var imagen1;
+
+          async function loadImg(URL) {
+
+            var img = new Image();
+            img.src = URL;
+
+            let promise = new Promise (( resolve , reject ) => 
+            {
+
+              img.onload = function(){
+
+                resolve(img);
+
+              }
+            });
+
+            let imagen = await promise; 
+           console.log('res',imagen);
+
+           //async function always return a promise
+           //return promiseimg;
+
+
+
+          }
+
+         
+
+          var img = loadImg('logo.png');
+
+        */
+          //tenemos que res = img pero img = promise !
+
+
+
+
+
+
+
+          /* para cargar una serie de imagenes, tengo estas opciones :
+
+          a) hacer un loop sobre el array de urls y pasar la funcion loadImg,
+             lo que haria esperar a cada imagen cargada para cargar la siguiente??
+
+          b) por cada url crear una promesa y luego hacer un recorrido por todas las promesas
+
+        */
+
+// A simple promise that resolves after a given time
+// ! -(t) parameter in arrow functions
+/*
+const timeOut = (t) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`Completed in ${t}`)
+    }, t)
+  })
+}
+*/
+        var urls = ['url1.jpg','url2.jpg','url3.jpg','url4.jpg'];
+
+        var promesas = [];
+
+        var imagenes = [];
+
+
+        for ( var i=0 ; i < urls.length ; i++)
+         { 
+            const promise = new Promise (( resolve , reject ) => 
+            {
+              var img = new Image();
+              img.src = urls[i];
+              img.onload = function(){
+
+                resolve(img);
+
+              }
+            });
+            console.log(promise);
+            promesas.push(promise);
+          }
+
+          //console.log(promesas);
+
+          Promise.all(promesas).then(values => { 
+            console.log(values);createImages(values);
+          }, reason => {
+            console.log(reason)
+          });
+
+
+          function createImages(values)
+          {
+           
+                console.log("val",values);
+         
+          } 
+          
+
+
+          //?return https://stackoverflow.com/questions/33073509/promise-all-then-resolve
+        </script>
+    
+</html>

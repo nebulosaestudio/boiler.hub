@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<!--
+    basic game template
+-->
+<html>
+    <head>
+        <title>. LOADER .</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+       <!-- crossorigin="anonymous" //inside <script> -->
+      
+        
+        <style>
+            html {
+                /*background-color: #faf;*/
+                margin:0;
+                padding:0;
+                height:100%;
+            }
+
+            body{
+                margin:0;
+                padding:0;
+                background:rgba(14,12,18,1);
+            }
+
+            #canvas{
+                margin:0;
+                padding:0;
+                width:100%;
+                height:100%;
+            }
+        </style>
+    </head>
+
+    <body >
+
+     
+    </body>
+
+        <script>
+
+            //EVENTS
+            /*
+                Image.onload
+
+                window.onpress
+
+                
+
+            */
+            //SPLASH SCREEN
+
+            //INTRO SCREEN
+
+            //GAME SCREEN
+
+            //GAME OVER SCREEN
+
+
+            var ctx;
+
+            //O.SET DEVICE
+
+            setCanvasOnDevice().then(res => next('splash',res));
+
+
+
+            function next(screen,arg)//gestion scence manager
+            {
+              console.log('next',screen,arg);
+              switch(screen)
+              {
+                case 'splash' : 
+
+                                setSplashScreen().then(res => console.log('splash',res));
+
+                                break;
+
+                case 'loadintro':
+                                //loadintro
+                                setIntroSreen().then(res => next('intro'));
+
+                                break;
+                case 'intro'  :
+
+                                drawIntro();
+                                loadGame();
+
+                                break;
+                case 'gameloaded' :
+
+                                setButtonToStart();
+                                //setListener(onclick -> next(start))
+                                break;
+                case 'start' : 
+
+                                break;
+              }
+            }
+
+             async function setCanvasOnDevice(){
+
+              var canvas_elem = document.createElement("canvas");
+              canvas_elem.id = "stage_canvas";
+              canvas_elem.width = screen.availWidth;
+              canvas_elem.height = screen.availHeight;
+              document.body.append(canvas_elem);
+              
+              ctx = canvas_elem.getContext('2d');
+
+              return canvas_elem;
+
+            }
+
+            
+
+         
+            async function setSplashScreen(){
+              console.log("setSplash");
+              var promise = loadIMG_promise('diadia2.png').then(
+                  img => { drawImagen(img); 
+                   // next('loadintro'); }); 
+                  });
+              return promise;
+
+            }
+
+
+
+            function loadIntro(){
+
+                var anim;
+                var logo;
+                var button;
+            }
+
+
+
+
+            //funciones reutilizables
+
+             function drawImagen(img)
+            {
+              console.log('drawimage',img.height);
+             // var img = img;
+              var posx = (screen.availWidth/2) - img.width /2 ;
+              var posy = (screen.availHeigt/2) - img.height/2 ; //asegurar q el tamaño de la imagen no es mayor q la pantalla
+              console.log(posx,posy);
+              ctx.drawImage(img,0,0);
+            }
+
+
+
+            var loadIMG_promise = (URL) => {
+
+                return new Promise(function(resolve, reject) {
+
+                  var img = new Image();
+                  img.src = URL;
+                  img.onload = function() {
+                  resolve(img);
+                    }
+                });
+              }
+
+        
+
+        </script>
+    
+</html>
