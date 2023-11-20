@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+<title>Globe UP!</title>
+
+        <style>
+
+           html {
+                /*background-color: #faf;*/
+                margin:0;
+                padding:0;
+                height:100%;
+            }
+
+            body{
+                margin:0;
+                padding:0;
+                
+            }
+@media only screen and (orientation:portrait){
+      html {
+                /*background-color: #faf;*/
+                margin:0;
+                padding:0;
+                height:100%;
+            }
+
+        body {
+          height: 100vw;
+          transform: rotate(90deg) !important; 
+          margin:0;
+          padding:0;
+             }
+          }
+           
+
+            #canvas{
+                margin:0;
+                padding:0;
+                width:100%;
+                height:100%;
+            }
+
+            #score{
+              position:absolute;
+              right:10px;
+              top:10px;
+              font-family:"Courier",courier,monsopace;
+              font-size:  20px;
+              color:red;
+
+              z-index:101;
+            }
+        </style>
+</head>
+
+<body>
+<span id="score"> </span> 
+</body>
+<!--
+<script type="text/javascript" src="cordova.js"></script>
+-->
+<script src='./Player.js'> </script>
+<script src='./Events.js'> </script>
+<script src='./Stage.js'> </script>
+<script src='./Sprite.js'> </script>
+<script src='./Loader.js'> </script>
+
+<script type="text/javascript">
+
+var flag = true;
+function singletonfullScreen() {
+  
+
+    if (flag){
+  // Kind of painful, but this is how it works for now
+  if (document.documentElement.requestFullscreen) {
+    document.documentElement.requestFullscreen();
+  } else if (document.documentElement.mozRequestFullScreen) {
+    document.documentElement.mozRequestFullScreen();
+  } else if (document.documentElement.webkitRequestFullscreen) {
+    document.documentElement.webkitRequestFullscreen();
+  } else if (document.documentElement.msRequestFullscreen) {
+    document.documentElement.msRequestFullscreen();
+  }
+  flag = false;
+  }
+}
+
+
+//lock()
+function lock(orientation="landscape") {
+ 
+  screen.orientation.lock("landscape");
+}
+
+const GAME_STATE_RESET = 0
+const GAME_STATE_INTRO = 1;
+const GAME_STATE_LOAD_GAME = 2;
+const GAME_STATE_NEW_GAME = 3;
+const GAME_STATE_PLAY = 4;
+const GAME_STATE_GAME_OVER = 5;
+
+
+  var canvas_width = window.innerWidth;
+  var canvas_height = window.innerHeight;
+
+  //valores iniciales para reset
+  var stage  = new Stage();
+ // var ctx = stage.getCtx();
+  var canvas = document.getElementById("stage_canvas");
+  var ctx = canvas.getContext('2d');
+
+ // var ctxb = stage.ctxb;
+
+  var PLAYER_LOAD = false;
+  var BACK_LOAD = false;
+  //EVENTS
+  var PRESS = false;
+  var eventos = new Events();
+
+  //WORLD
+  var terrain;
+  //var player
+  var player;
+
+  var interval_game;
+  var interval;
+  let pixel,pixel_top,pixel_bottom;
+
+    var url_sprites_intro = ['back_splash.jpg','title.png','up.png'];
+  var url_sprites_player = ['globe.gif','globe1.gif','globe2.gif'];
+  var url_sprites_back = ['back_cueva.png','back_bw.gif','GLOBE_MASK.png'];
+  var sprites_player;
+  var sprites_back;
+
+  var promise_sprites_intro = aload(url_sprites_intro);
+  promise_sprites_intro.then(createIntro);
+
+  var promises_sprites_back = aload(url_sprites_back);
+  var promises_sprites_player = aload(url_sprites_player);
+
+  promises_sprites_back.then(sprites => {
+        sprites_back = sprites;
+        var back = new Sprite(sprites[0],0,0,1,1);
+        var terrain = new Sprite(sprites[1],0,0,1,1)
+        stage.addBack(sprites[0]);
+        stage.setMask(sprites[2]);
+        BACK_LOAD = true;
+      });;
+
+  promises_sprites_player.then(sprites => {
+        sprites_player = sprites;
+         player = new Player();
+         player.setSprite(sprites[0]);
+         player.setAnim(sprites);
+         PLAYER_LOAD = true;
+      });
+    
+
+  //draw SPLASH INTRO
+  function createIntro(vals)
+  {
+   
+    var sprites_intro = vals;
+
+    var back = new Sprite(sprites_intro[0],0,0,0.92,1 );
+    var logo = new Sprite(sprites_intro[1],0.221,0.535,0.481,1);
+  
+    stage.addElem(back);
+    stage.addElem(logo);
+    
+    back.drawfix();
+    logo.drawrel();
+   // stage.drawe();
+
+    init();
+
+  }
+
+  function gameStateIntro()
+  {
+    if (PRESS) { switchGameState(GAME_STATE_LOAD_GAME); }
+  }
+
+  //aunq esta precargandonse desde antes de init, lo ideal, seria que hasta que no este cargado no este disponible evento press en lal pantalla de inicio.
+  function gameStateLoad()
+  {
+   if (( PLAYER_LOAD == true ) && ( BACK_LOAD == true))
+   {
+   
+     // stage.onResize();
+      switchGameState(GAME_STATE_PLAY);
+    }
+  }
+
+  function gameStateReset()
+  {
+    player.reset();
+    stage.reset();
+    switchGameState(GAME_STATE_PLAY);
+  }
+
+  function gameStatePlay()
+  {
+        stage.update();
+        player.update();
+        //var x = stage.getX() ; // * RATIO INVERSO
+        score ++;
+        document.getElementById("score").innerHTML = score;
+
+
+      if ( checkCollision() ) {  switchGameState(GAME_STATE_GAME_OVER);}
+  }
+
+  function gameStateOver()
+  {
+    console.log("GAME OVER");
+    // if (PRESS) { switchGameState(GAME_STATE_RESET); }
+  }
+
+  function checkCollision()
+  {
+    //console.log(stage.ctxb);
+    // * RATIO INVERSO
+    let y = player.getY();
+    let x = player.getX();
+    player.drawp(player.getX,y,[255,255,255]);
+    pixel_top = ctx.getImageData(x, y, 1, 1).data;
+    pixel_bottom = ctx.getImageData(x, y+50, 1, 1).data;
+
+console.log(pixel_top,pixel_bottom)
+          if (pixel_top[0] > 100 || pixel_bottom[0] > 100) {  
+            return true;
+          }else{          
+              return false;
+          }   
+          
+          
+  }
+  //state machine
+  /*
+  const GAME_STATE_RESET = 0
+  const GAME_STATE_INTRO = 1;
+  const GAME_STATE_LOAD_GAME = 2;
+  const GAME_STATE_NEW_GAME = 3;
+  const GAME_STATE_GAME_OVER = 4;
+  */
+  function switchGameState(newState)
+  {
+    currentGameState = newState;
+    switch (currentGameState){
+      case GAME_STATE_RESET : 
+        currentGameStateFunction = gameStateReset;
+        break;
+      case GAME_STATE_INTRO :
+        currentGameStateFunction = gameStateIntro;
+        break;
+      case GAME_STATE_LOAD_GAME : 
+        currentGameStateFunction = gameStateLoad;
+        break;
+      case GAME_STATE_NEW_GAME :
+        currentGameStateFunction = gameStateNewGame;
+        break;
+      case GAME_STATE_PLAY :
+        currentGameStateFunction = gameStatePlay;
+        break;
+      case GAME_STATE_GAME_OVER :
+        currentGameStateFunction = gameStateOver;
+        break;
+      }
+  }
+
+
+var score = 0000000;
+
+function runGame(){
+  var time = Date.now() * 0.00025;
+   
+  currentGameStateFunction();
+   
+  var delta =  Date.now() * 0.00025 - time;
+ // console.log(delta);
+  interval = window.requestAnimationFrame(runGame);
+
+
+}
+
+function init()
+{
+  switchGameState(GAME_STATE_INTRO);
+  runGame();
+}
+
+</script> 
+</head>
+
+</html>
