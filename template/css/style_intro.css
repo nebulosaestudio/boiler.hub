@@ -1,0 +1,161 @@
+/*!
+ *  @david.dabada
+ *  License - MIT License)
+ */
+
+ /* @import url('font-awesome.min.css'); */
+
+  /* reset */
+  html,body,h1,h2,a,ul,li{	margin:0; padding:0;}
+  a{text-decoration:none}
+
+  body{
+	  font-size:1.2rem;
+  }
+
+  a{text-decoration:none;}
+ ul,li{list-style:none;}
+ li{display:inline-block;padding:1em}
+  
+
+/* colors */
+
+html { background:#fff}
+body{ background:radial-gradient(circle, rgb(235, 213, 222) 0%, rgb(183, 200, 219) 100%);}
+
+footer p{color:#faf}
+.fa{color:#faf;}
+.fo{color:#f0f;}
+
+/* props */
+
+html{width:100%;height:100%;}
+body{width:100%;height:100%;}
+
+
+
+ /* ty¡po */
+ html{    
+	font-size: calc(16px + 4 * ((100vw - 480px)/ 800));
+	line-height:1.5;
+}
+
+ 
+ body,h1,h2{
+	color: rgba(20,20,20,0.9);
+	font-family: "Source Sans Pro", serif;
+	margin:0;
+	padding:0;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: auto;
+}
+
+@font-face{
+	font-family:'futura';
+		src:url('fonts/CaviarDreams.ttf') format('truetype');
+			font-weight:normal;
+			font-style:normal;}
+
+@font-face{
+	font-family:'futuraB';
+		src:url('fonts/Available.ttf') format('truetype');
+		}
+
+
+
+	img{background:gray;}
+		
+ 
+	ul{ display:flex;flex-direction:row;}
+	ul li a{display:flex;flex-direction:column;align-items: center;justify-content: center;}
+
+	ul li a img{width:3rem;height:3rem}
+
+	ul li a{
+		color:rgba(240,222,212,0.8);
+		text-shadow: 1px 1px 1px black; 
+		font-size:0.9rem;
+		}
+ /* offset-x | offset-y | blur-radius | color */
+ .txt_sha{
+	 text-shadow: 1px 1px 2px black; 
+ }
+ .stk{
+	-webkit-text-stroke:0.03rem rgba(12,20,21,0.9);
+ }
+	 
+ .serif{font-family:serif;}
+ .sans{font-family:sans-serif;}
+ .mono{font-family:Courier;}
+
+
+
+	h1{
+		font-size:2.2rem;
+		color:rgba(240,252,242,0.9);
+		letter-spacing:0.8rem;
+		line-height:1.12rem;
+		font-weight: 100;
+		font-family:"Source Sans Pro", sans-serif;
+		font-family:futuraB;
+		padding-top:2rem;
+	}
+
+	h2{
+		color:rgba(240,252,242,0.98);
+		font-size:1.2rem;
+		letter-spacing:0.34rem;
+		line-height:2.1rem;
+		font-weight: 200;
+		font-family: "Helvetica",Helvetica,"Lucida Sans Console",Lucida,serif;
+	}
+
+
+	h3,h4{
+		font-family: "Helvetica",Helvetica,"Lucida Sans Console",Lucida,serif;
+		
+	}
+
+	footer p{font-size:0.5em;}
+
+/*prop layout */
+
+/* GRID */
+
+
+#wrap{   
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height:100%;
+	width:100%;
+	flex-direction:column;
+}
+footer{
+	position: absolute;
+bottom: 0;
+   }
+
+.scaps{
+	font-variant: small-caps;
+}
+.cap{font-size:4em;line-height:1em;color:rgba(230,230,230,0.8);padding:0;margin:0;}
+ .georgia{
+	font-family: georgia !important;
+	font-size:0.6rem !important;
+ }
+ a.icono span{opacity:0.4;}
+ a.icono:hover span{
+	 opacity:0.8;
+ }
+
+.start{align-self: flex-start;}
+
+.end{	align-self: flex-end;}
+.op30{opacity:0.3}
+
+.op80{opacity:0.8}
+
+.op60{opacity:0.6}
+

@@ -1,0 +1,151 @@
+
+/*!
+ *  @david.dabada
+ *  License - MIT License)
+ */
+
+ html{    
+	font-size: calc(16px + 4 * ((100vw - 480px)/ 800));
+	line-height:1.5;
+}
+
+/* ty¡po  rem*/
+
+.serif{
+	font-family:serif;
+  }
+  .sans-serif{
+	font-family:sans-serif;
+  }
+  .monospace{
+	font-family:monospace;
+  }
+  .times{
+	font-family:Times;
+  }
+  .georgia{
+	font-family:Georgia;
+  }
+  .courier{
+	font-family:Courier;
+  }
+  .monaco{
+	font-family:Monaco;
+  }
+
+  /* font */
+.font{
+	font: normal normal 400 1rem 1.2rem serif;
+}
+
+
+/* style */
+.font-style-normal { font-style:normal };
+.font-style-italic { font-style:italic };
+.font-style-oblique {font-style:oblique}
+
+/* weight */
+
+.font-weight-100 { font-weight:100;}
+.font-weight-200 { font-weight:200;}
+.font-weight-300 { font-weight:300;}
+.font-weight-400,
+.font-weight-normal { font-weight:400;} 
+.font-weight-500 { font-weight:500;}
+.font-weight-600 { font-weight:600;}
+.font-weight-700 { font-weight:700;}
+.font-weight-800,
+.font-weight-bold { font-weight:800;}
+.font-weight-900 { font-weight:900;}
+
+
+/* size */
+
+.font-size-06{ font-size: 0.6rem }
+.font-size-07{ font-size: 0.7rem }
+.font-size-08{ font-size: 0.8rem }
+.font-size-09{font-size: 0.9rem }
+.font-size-1 {font-size: 1rem}
+.font-size-12{font-size: 1.2rem}
+.font-size-13{font-size: 1.3rem}
+.font-size-14{font-size: 1.4rem}
+.font-size-15{font-size: 1.5rem}
+.font-size-16{font-size: 1.6rem}
+.font-size-17{font-size: 1.7rem}
+.font-size-18{font-size: 1.8rem}
+.font-size-19{font-size: 1.9rem}
+.font-size-20{font-size: 2.0rem}
+.font-size-21{font-size: 2.1rem}
+.font-size-22{font-size: 2.2rem}
+.font-size-23{font-size: 2.3rem}
+.font-size-24{font-size: 2.4rem}
+.font-size-25{font-size: 2.5rem}
+.font-size-26{font-size: 2.6rem}
+.font-size-28{font-size: 2.8rem}
+.font-size-29{font-size: 2.9rem}
+.font-size-30{font-size: 3rem}
+.font-size-31{font-size: 3.1rem}
+.font-size-32{font-size: 3.2rem}
+.font-size-33{font-size: 3.3rem}
+.font-size-34{font-size: 3.4rem}
+.font-size-35{font-size: 3.5rem}
+.font-size-36{font-size: 3.6rem}
+.font-size-42{font-size: 4.2rem}
+.font-size-4 {font-size: 4.3rem}
+.font-size-5 {font-size: 5.2rem}
+.font-size-6 {font-size: 6.3rem}
+
+/* variant */
+.font-variant-smallcaps{font-variant:small-caps;}
+.font-variant-smallcaps{font-variant:all-small-caps;}
+
+/* kerning */
+.font-kerning{font-kerning:auto;}
+.font-kerning{font-kerning:normal;}
+.font-kerning{font-kerning:none}
+
+/* ligatures */
+
+.font-variant-ligatures { font-variant-ligatures:normal;}
+.font-variant-ligatures-none { font-variant-ligatures:none;}
+
+/* stretch */
+
+.font-stretch-expanded {  font-stretch: expanded;}
+.font-stretch-condensed { font-stretch: condensed;}
+
+/* nums */
+.font-variant-numeric-proportional{font-variant-numeric: proportional-nums;}
+.font-variant-numeric-tabular {font-variant-numeric: tabular-nums;}
+
+/* decoration */
+.text-decoration-underline{ text-decoration : underline; }
+.text-decoration-overline{ text-decoration : overline; }
+.text-decoration-line-through{ text-decoration : line-through; }
+
+.text-decoration-style-solid{text-decoration-style:solid}
+.text-decoration-style-wavy{text-decoration-style:wavy}
+.text-decoration-style-dotted{text-decoration-style:dotted}
+.text-decoration-style-dashed{text-decoration-style:dashed}
+.text-decoration-style-double{text-decoration-style:double}
+
+/* paragraph */
+.text-align-center { text-align: center }
+.text-align-left { text-align: left }
+.text-align-right { text-align: right }
+.text-align-justify { text-align: justify }
+
+
+/* STYLE */
+
+.font-fill-transparent{-webkit-text-fill-color:transparent;}
+
+.font-stroke{ -webkit-text-stroke: 1px black;}
+
+.font-stroke-ie{text-shadow: -1px -1px 0 #000,  1px -1px 0 #000, -1px 1px 0 #000,  1px 1px 0 #000; }
+
+.text-shadoe{ text-shadow:3px 3px 0 #000,-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,1px 1px 0 #000;}
+
+
+
+

@@ -1,0 +1,63 @@
+
+.flex{
+
+	  display: flex;
+		justify-content: center;
+		 align-items: center;
+}
+h1,h2{
+	display:block;
+	width:100%;
+
+
+}
+#main_warp_post h1{
+	/*font-family:futuraB;  "New Courier",monospace,Courier;*/
+	font-family:"IBM Plex Mono", monospace;
+	font-size: 6ch;
+	line-height:4ch;
+}
+
+#main_warp_post h2{
+	font-family: "Helvetica","Lucida Sans Console",Lucida,serif;
+	font-size:1.4vw;
+	line-height:3ch;
+	text-align:center;
+	}
+#main_warp_post #info{
+		margin-top:4ch;
+	}
+
+
+
+
+#main_post{
+	display:flex;
+	align-content: center;
+	flex-direction: column;
+}
+
+#main_warp_post{
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	text-align: justify;
+	text-justify: inter-character;
+}
+
+#info{
+	line-height: 2.8ch;
+}
+
+#info span{
+	font-weight: bolder;
+	font-size:1.6ch;
+}
+
+
+h2.intro{font-family:Georgia, 'Times New Roman', Times, serif;}
+h2.intro:before { content: open-quote; }
+h2.intro:after  { content: close-quote; }
+
+blockquote:before { content: open-quote; }
+blockquote:after  { content: close-quote; }
