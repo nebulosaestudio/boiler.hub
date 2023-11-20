@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<!--
+    basic canvas template
+-->
+<html>
+	<head>
+		<title>. drawing waves .</title>
+		<meta charset="utf-8" />
+		<meta name="viewport"  />
+	   <!-- crossorigin="anonymous" //inside <script> -->
+        <script src="Circulo.js" ></script>
+        <script src="Circulos.js" ></script>
+        <script src="./Chart.min.js"></script>
+		<style>
+			html {
+				/*background-color: #faf;
+				margin:0;
+				padding:0;
+				height:100%;
+                */
+			}
+
+			body{
+				margin:0;
+				padding:0;
+				
+			}
+
+			#canvas{
+				margin:0;
+				padding:0;
+				
+			}
+		</style>
+	</head>
+
+	<body >
+
+		<canvas id="canvas" width="1500" height="1500"></canvas>
+
+
+	</body>
+
+		<script>
+    
+		/* user data */
+
+		var height = screen.availHeight;
+		var width  = screen.availWidth;
+
+		var cy = height / 2;
+
+		/* CANVAS PAINT */
+
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+
+		ctx.fillStyle = 'rgba(200,200,200,0.8)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+/*
+        var gui = new dat.GUI();
+
+                gui.add( effectController, 'rx' ,-100,100, 1).onChange(updateCam);
+                gui.add( effectController, 'ry' ,-100,100, 1).onChange(updateCam);
+                gui.add( effectController, 'rz' ,-100,100, 1).onChange(updateCam);
+
+                gui.add( effectController, 'camerax' ,-100,100, 1).onChange(updateCam);
+                gui.add( effectController, 'cameray' ,-100,100, 1).onChange(updateCam);
+                gui.add( effectController, 'cameraz' ,-1000,1000, 1).onChange(updateCam);
+
+                gui.add( effectController, 'focalLength', 1, 135, 0.01 ).onChange( matChanger );
+                gui.add( effectController, 'fstop', 1.8, 22, 0.01 ).onChange( matChanger );
+                gui.add( effectController, 'focalDepth', 0.1, 100, 0.001 ).onChange( matChanger );
+                gui.add( effectController, 'showFocus', true ).onChange( matChanger );
+
+        var matChanger = function ( ) {
+
+                    for ( var e in effectController ) {
+                        
+                       var value =  effectController[ e ]
+                       //onda.setValue(value);
+                    }
+                }
+
+*/
+
+        // save image
+        document.addEventListener('keydown', function(event) {
+            if(event.keyCode == 83) {
+                saveImg();
+            }
+           
+        });
+
+        function saveImg()
+        {
+        var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
+
+
+        window.location.href=image;
+        }
+        //init
+
+       // onda = new Onda();
+        //onda.setin({ vf : [500,500,0] });
+
+      //  var ondas = new Circulos();
+      //  ondas.setin({ vf : [500,500,0] });
+      var no = 0;
+      var n2 = 2;
+      var t = 600;
+        // intervalo A
+        var si = setInterval(update,t);
+
+        //collection
+        var ondas = [];
+
+        function update()
+        {
+
+        
+        	
+            var x = Math.random()* width;
+            var y = Math.random()* height;
+
+            var x = 100 * no + no * 10; 
+            var y = 100 * n2 + n2 * 10;
+            var y = 100;
+            var onda = new Circulos();
+            onda.setin({vf:[x,y,0]});
+
+            ondas.push(onda);
+            no++;
+            t = t + no*10;
+            if (no > 10) { n2++; no = 0;}
+            if ( no > 300 ){ clearInterval(si);}
+        }
+
+        // intervalo B
+        function draw(){
+
+            ctx.fillStyle = 'rgba(220,220,220,0.8)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+
+ 		     for( var i = 0 ; i < ondas.length ; i++)
+             {
+            ondas[i].update();
+             }
+     
+        	interval = window.requestAnimationFrame(draw);
+        }
+
+
+        draw();
+       
+		</script>
+	
+</html>

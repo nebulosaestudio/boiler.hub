@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<!--
+    basic canvas template
+-->
+<html>
+	<head>
+		<title>. drawing waves .</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
+	   <!-- crossorigin="anonymous" //inside <script> -->
+        <script src="Onda.js" ></script>
+        <script src="Ondas.js" ></script>
+        
+		<style>
+			html {
+				/*background-color: #faf;*/
+				margin:0;
+				padding:0;
+				height:100%;
+			}
+
+			body{
+				margin:0;
+				padding:0;
+				
+			}
+
+			#canvas{
+				margin:0;
+				padding:0;
+				width:100%;
+				height:100%;
+			}
+		</style>
+	</head>
+
+	<body >
+
+		<canvas id="canvas" width="1500" height="1500"></canvas>
+
+
+	</body>
+
+		<script>
+       
+        function  ping(n)
+        {
+           var f = 'ASC';
+           switch ( f )
+           {
+             case 'ASC':
+                     n += 0.1;
+                     if (n == 1){
+                        f = 'DES';
+                     } 
+                     break;
+              case 'DES':
+                     n -= 0.1;
+                    if (n == 0){
+                       f ='ASC';
+                    }
+                    break;
+                default : break;
+
+            }
+            return Math.round(n*10)/10;
+            
+         }
+         /*
+        class ping()
+        {
+            constructor(n){
+                this.n = n;
+                this.f = 'ASC';
+            }
+
+            ping()
+            {
+               switch ( this.f )
+                {
+                    case 'ASC':
+                     this.n += 0.1;
+                     if (this.n == 1){
+                        this.f = 'DES';
+                     } 
+                     break;
+                    case 'DES':
+                     this.n -= 0.1;
+                    if (this.n == 0){
+                        this.f ='ASC';
+                    }
+                    break;
+                }
+            
+            }
+        }
+        */
+		/* user data */
+
+		var height = screen.availHeight;
+		var width  = screen.availWidth;
+
+		var cy = height / 2;
+
+		/* CANVAS PAINT */
+
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+
+		ctx.fillStyle = 'rgba(200,200,200,1)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+
+
+        //init
+
+       // onda = new Onda();
+        //onda.setin({ vf : [500,500,0] });
+
+        var ondas = new Ondas();
+        ondas.setin({ vf : [500,500,0] });
+
+
+        // intervalo A
+        var si = setInterval(update,100);
+
+        function update()
+        {
+
+        	ctx.fillStyle = 'rgba(100,100,220,1)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        	  ondas.update();
+     
+
+
+        }
+
+        // intervalo B
+        function draw(){
+
+         ctx.fillStyle = 'rgba(10,10,10,0.012)';
+        	ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+ 		    ondas.update();
+     
+        	interval = window.requestAnimationFrame(draw);
+        }
+
+
+        //draw();
+       
+		</script>
+	
+</html>
